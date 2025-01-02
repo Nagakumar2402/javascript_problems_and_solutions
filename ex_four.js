@@ -13,6 +13,9 @@ const obj2 = { a: 1, b: 2, c: 3 };
 const obj3 = { a: 1, b: 2, d: 4 };
 
 const compareObjects = (obj1, obj2) => {
+  /*
+    The every() method of Array instances tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+    */
   return Object.keys(obj1).every((key) => obj2[key]);
 };
 

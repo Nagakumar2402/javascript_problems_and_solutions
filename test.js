@@ -1,22 +1,11 @@
-const FlattenNestedArray = (arr) => {
-  return arr.reduce((single, nestedArray) => {
-    return single.concat(
-      Array.isArray(nestedArray) ? FlattenNestedArray(nestedArray) : nestedArray
-    );
-  }, []);
-};
-console.log(FlattenNestedArray([1, [2, [3, 4]]]));
-
-const FlattenNestedArray1 = (arr) => {
-  let flattenArray = [];
-  arr.forEach((element) => {
-    if (Array.isArray(element)) {
-      flattenArray.push(...FlattenNestedArray1(element));
-    } else {
-      flattenArray.push(element);
+const commonElementsBetweenTwo = (arr1, arr2) => {
+  const newArr = arr1.concat(arr2);
+  let arrElement = [];
+  for (let i = 0; i < newArr.length; i++) {
+    if (arrElement.includes(newArr[i])) {
+      arrElement.push(newArr[i]);
     }
-  });
-  return flattenArray;
+  }
+  return arrElement;
 };
-
-console.log(FlattenNestedArray1([1, [2, [3, 4]]]));
+console.log(commonElementsBetweenTwo([1, 2], [2, 5]));

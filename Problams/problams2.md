@@ -136,7 +136,7 @@ const secondLargestNum = (arr) => {
     if (num > largest) {
       secondLargestNum = largest;
       largest = num;
-    } else if (num > secondLargestNum && num !== largest) {
+    } else if (num < secondLargestNum && num !== largest) {
       secondLargestNum = num;
     }
   }

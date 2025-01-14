@@ -4,6 +4,16 @@ Here are **10 more fresh JavaScript problem ideas** for beginners:
 
    - Write a program to convert a given number of minutes into hours and minutes (e.g., 130 minutes → 2 hours and 10 minutes).
 
+```js
+const convertMinutesToHours = (minutes) => {
+  const hours = Math.floor(minutes / 60);
+  const minute = minutes % 60;
+
+  return `${hours} hours and ${minute} minutes`;
+};
+console.log(convertMinutesToHours(560));
+```
+
 2. **Check if String Contains Only Digits**
 
    - Create a function to check if a given string contains only numeric characters.
@@ -12,6 +22,34 @@ Here are **10 more fresh JavaScript problem ideas** for beginners:
 
    - Build a program to generate a random password of a specified length, including letters, numbers, and symbols.
 
+```js
+const generateARandomPassword = (num) => {
+  const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const symbols = "!@#$%^&*()_+[]{}|;:,.<>?";
+  const allCharacters = letters + numbers + symbols;
+
+  return Array.from(
+    { length: num },
+    () => allCharacters[Math.round(Math.random() * allCharacters.length)]
+  ).join("");
+};
+console.log(generateARandomPassword(14));
+
+const generateARandomPassword1 = (num) => {
+  const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const symbols = "!@#$%^&*()_+[]{}|;:,.<>?";
+  const allCharacters = letters + numbers + symbols;
+  let password = "";
+  for (i = 0; i < num; i++) {
+    password += allCharacters[Math.round(Math.random() * allCharacters.length)];
+  }
+  return `the password is ${password}`;
+};
+console.log(generateARandomPassword1(6));
+```
+
 4. **Check if Array Contains a Target Element**
 
    - Write a function to check if a specific value exists in an array.
@@ -19,6 +57,31 @@ Here are **10 more fresh JavaScript problem ideas** for beginners:
 5. **Flatten a Nested Array**
 
    - Create a program to flatten a nested array (e.g., `[1, [2, [3, 4]]]` → `[1, 2, 3, 4]`).
+
+```js
+const FlattenNestedArray = (arr) => {
+  return arr.reduce((single, nestedArray) => {
+    return single.concat(
+      Array.isArray(nestedArray) ? FlattenNestedArray(nestedArray) : nestedArray
+    );
+  }, []);
+};
+console.log(FlattenNestedArray([1, [2, [3, 4]]]));
+
+const FlattenNestedArray1 = (arr) => {
+  let flattenArray = [];
+  arr.forEach((element) => {
+    if (Array.isArray(element)) {
+      flattenArray.push(...FlattenNestedArray1(element));
+    } else {
+      flattenArray.push(element);
+    }
+  });
+  return flattenArray;
+};
+
+console.log(FlattenNestedArray1([1, [2, [3, 4]]]));
+```
 
 6. **Find the Intersection of Two Arrays**
 

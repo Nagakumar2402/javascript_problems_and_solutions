@@ -176,20 +176,60 @@ Here is your content, properly formatted in Markdown:
      <summary style="font-weight: bold">Answer</summary>
 
    ```js
+   const commonElementsBetweenTwo = (arr1, arr2) => {
+     let arrElement = [];
+     for (let i = 0; i < arr1.length; i++) {
+       if (arr2.includes(arr1[i]) && !arrElement.includes(arr1[i])) {
+         arrElement.push(arr1[i]);
+       }
+     }
+     return arrElement;
+   };
+   console.log(commonElementsBetweenTwo([1, 2], [2, 5]));
 
+   const commonElementsBetweenTwo1 = (arr1, arr2) => {
+     return arr1.filter((element) => arr2.includes(element));
+   };
+   console.log(commonElementsBetweenTwo1([1, 2, 3], [2, 3, 4]));
    ```
 
-   </details>
+</details>
 
 7. **Find Missing Number in an Array**
 
-   - Given an array of numbers from 1 to `n` with one number missing, find the missing number (e.g., `[1, 2, 4, 5]` → `3`).
-   <details>
-     <summary style="font-weight: bold">Answer</summary>
+- Given an array of numbers from 1 to `n` with one number missing, find the missing number (e.g., `[1, 2, 4, 5]` → `3`).
 
-   ```js
+![formula](image.png)
 
-   ```
+> The XOR operator (^) can be used to find the missing number. XOR of two identical numbers is 0, and XOR of a number with 0 is the number itself.
+
+<details>
+  <summary style="font-weight: bold">Answer</summary>
+
+```js
+const findMissingNumber = (arr) => {
+  const n = arr.length + 1;
+  let totalSum = (n * (n + 1)) / 2;
+  let totalArray = arr.reduce((ini, cur) => ini + cur, 0);
+  return totalSum - totalArray;
+};
+console.log(findMissingNumber([1, 2, 3, 4, 5, 6, 8, 9]));
+
+const findMissingNumber1 = (arr) => {
+  let n = arr.length + 1;
+  let XORall = -Infinity;
+  let XORarray = -Infinity;
+
+  for (let i = 1; i <= n; i++) {
+    XORall ^= i;
+  }
+  for (let num of arr) {
+    XORarray ^= num;
+  }
+  return XORall ^ XORarray;
+};
+console.log(findMissingNumber1([1, 2, 3, 4, 5, 6, 8, 9]));
+```
 
    </details>
 

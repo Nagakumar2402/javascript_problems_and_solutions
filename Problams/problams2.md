@@ -1,27 +1,33 @@
-Here are **10 more unique JavaScript problem ideas** for beginners:
+# JavaScript problems
 
-1. **Capitalize the First Letter of Each Word**
+### 1. **Capitalize the First Letter of Each Word**
 
-   - Write a function that takes a sentence and capitalizes the first letter of each word.
+Write a function that takes a sentence and capitalizes the first letter of each word.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const capitalizeThe1stLetter = (str) => {
+const capitalizeFirstLetter = (str) => {
   return str
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 };
-const sting = "sentence and capitalizes the first letter of each word";
-console.log(capitalizeThe1stLetter(sting));
-/*
-charAt() returns the character at a specified index (position) in a string.
-Array.slice() returns selected array elements as a new array:
-*/
+const sentence = "capitalize the first letter of each word";
+console.log(capitalizeFirstLetter(sentence));
 ```
 
-2. **Check for Anagram**
+</details>
 
-   - Create a program to check if two given strings are anagrams of each other (contain the same characters in a different order).
+---
+
+### 2. **Check for Anagram**
+
+Create a program to check if two given strings are anagrams of each other (contain the same characters in a different order).
+
+<details>
+<summary>Answer</summary>
 
 ```js
 const checkAnagram = (string1, string2) => {
@@ -30,19 +36,39 @@ const checkAnagram = (string1, string2) => {
   let sortedStr2 = string2.split("").sort().join("");
   return sortedStr1 === sortedStr2;
 };
-console.log(checkAnagram("silent", "listen"));
-console.log(checkAnagram("note", "tone"));
-console.log(checkAnagram("stressed", "desserts"));
-console.log(checkAnagram("hello", "world"));
+console.log(checkAnagram("silent", "listen")); // true
+console.log(checkAnagram("hello", "world")); // false
 ```
 
-3. **Fibonacci Sequence Generator**
+</details>
 
-   - Write a program to generate the first `n` numbers in the Fibonacci sequence.
+---
+
+### 3. **Fibonacci Sequence Generator**
+
+Write a program to generate the first `n` numbers in the Fibonacci sequence.
+
+<details>
+<summary>Answer</summary>
+
+### formula for fibonacci F(n) = F(n-1) + F(n-2) for n ≥ 2
 
 ```js
-// formula for fibonacci F(n) = F(n-1) + F(n-2) for n ≥ 2
+const fibonacciGenerator = (n) => {
+  if (n <= 0) return [];
+  if (n === 1) return [0];
+  let sequence = [0, 1];
+  for (let i = 2; i < n; i++) {
+    sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+  return sequence;
+};
+console.log(fibonacciGenerator(10));
+```
 
+## using recursion
+
+```js
 const fibonacciSequence = (num) => {
   if (num === 0) return 1;
 
@@ -55,26 +81,30 @@ const fibonacciSequenceNum = (num, arr = [0, 1]) => {
   const [nextToLast, last] = arr.slice(-2);
   return fibonacciSequenceNum(num - 1, [...arr, nextToLast + last]);
 };
-
-// console.log(fibonacciSequenceNum(12));
-
-const fibonacciGenerator = (num) => {
-  if (num <= 0) return [];
-  if (num === 1) return [0];
-  let fibonacciArr = [0, 1];
-  for (let i = 2; i <= num; i++) {
-    fibonacciArr.push(fibonacciArr[i - 1] + fibonacciArr[i - 2]);
-  }
-  return fibonacciArr;
-};
-
-console.log(fibonacciGenerator(10));
 ```
 
-4. **Count the Frequency of Characters**
+</details>
 
-   - Build a function that counts the frequency of each character in a string.
+---
 
+### 4. **Count the Frequency of Characters**
+
+Build a function that counts the frequency of each character in a string.
+
+<details>
+<summary>Answer</summary>
+ 
+## using reduce
+```js
+const countCharFrequency = (str) => {
+  return str.split("").reduce((freq, char) => {
+    freq[char] = (freq[char] || 0) + 1;
+    return freq;
+  }, {});
+};
+console.log(countCharFrequency("hello world"));
+```
+## using For Of
 ```js
 const countTheFrequencyOfChar = (str) => {
   let obj = {};
@@ -85,124 +115,130 @@ const countTheFrequencyOfChar = (str) => {
 };
 console.log(countTheFrequencyOfChar("naga kumar"));
 
-const countTheFrequencyOfChar2 = (str) => {
-  return str.split("").reduce((freq, char) => {
-    // freq[char] = (freq[char] || 0) + 1;
-    freq[char] ? (freq[char] = +1) : (freq[char] = 1);
-    return freq;
-  }, {});
-};
+````
 
-console.log(countTheFrequencyOfChar2("nagakumar"));
-```
+</details>
 
-5. **Check if Array is Sorted**
+---
 
-   - Write a function to determine if an array is sorted in ascending or descending order.
+### 5. **Check if Array is Sorted**
+
+Write a function to determine if an array is sorted in ascending or descending order.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const checkIfArrayIsSorted = (arr) => {
+const checkArraySorted = (arr) => {
   let isAscending = true;
   let isDescending = true;
   for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < arr[i - 1]) {
-      isAscending = false;
-    }
-    if (arr[i] > arr[i - 1]) {
-      isDescending = false;
-    }
+    if (arr[i] < arr[i - 1]) isAscending = false;
+    if (arr[i] > arr[i - 1]) isDescending = false;
   }
   if (isAscending) return "Array is sorted in ascending order.";
-  if (isDescending) return "Array is sorted in descending  order.";
-
-  return "Array is not sorted ";
+  if (isDescending) return "Array is sorted in descending order.";
+  return "Array is not sorted.";
 };
-console.log(checkIfArrayIsSorted([1, 3, 6, 8, 9, 12, 34, 56]));
-console.log(checkIfArrayIsSorted([5, 4, 3, 2, 1]));
-console.log(checkIfArrayIsSorted([5, 4, 3, 2, 1, 10, 3028]));
-```
+console.log(checkArraySorted([1, 2, 3])); // Ascending
+console.log(checkArraySorted([3, 2, 1])); // Descending
+console.log(checkArraySorted([1, 3, 2])); // Not sorted
+````
 
-6. **Find the Second Largest Number**
+</details>
 
-   - Create a program to find the second largest number in an array of numbers.
+---
+
+### 6. **Find the Second Largest Number**
+
+Create a program to find the second largest number in an array of numbers.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const secondLargestNum = (arr) => {
-  if (arr.length < 2) return "array must contain at least two elements  ";
+const secondLargest = (arr) => {
+  if (arr.length < 2) return "Array must have at least two elements.";
   let largest = -Infinity;
-  let secondLargestNum = -Infinity;
-
+  let secondLargest = -Infinity;
   for (let num of arr) {
     if (num > largest) {
-      secondLargestNum = largest;
+      secondLargest = largest;
       largest = num;
-    } else if (num < secondLargestNum && num !== largest) {
-      secondLargestNum = num;
+    } else if (num > secondLargest && num !== largest) {
+      secondLargest = num;
     }
   }
-  return secondLargestNum === -Infinity
-    ? "second largest number not found"
-    : secondLargestNum;
+  return secondLargest === -Infinity
+    ? "No second largest number found."
+    : secondLargest;
 };
-
-console.log(secondLargestNum([2, 4, 8]));
-console.log(secondLargestNum([2]));
-console.log(secondLargestNum([2, 2, 2]));
+console.log(secondLargest([10, 20, 30])); // 20
+console.log(secondLargest([5])); // Error message
 ```
 
-7. **Check for Palindromic Number**
+</details>
 
-   - Write a program to check if a given number reads the same forward and backward (e.g., 121, 1221).
+---
+
+### 7. **Check for Palindromic Number**
+
+Write a program to check if a number reads the same forward and backward.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const PalindromicNum = (num) => {
-  let srt = num.toString();
-  return srt === srt.split("").reverse().join("");
+const isPalindromicNumber = (num) => {
+  let str = num.toString();
+  return str === str.split("").reverse().join("");
 };
-
-console.log(PalindromicNum(121));
-console.log(PalindromicNum(1221));
+console.log(isPalindromicNumber(121)); // true
+console.log(isPalindromicNumber(123)); // false
 ```
 
-8. **Sum of Digits**
+</details>
 
-   - Create a function to calculate the sum of the digits of a given number (e.g., for 123, return 1+2+3=6).
+---
+
+### 8. **Sum of Digits**
+
+Create a function to calculate the sum of the digits of a given number.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const SumOfDigits = (num) => {
-  const str = num.toString();
-  return str.split("").reduce((acc, cur) => {
-    return acc + Number(cur);
-  }, 0);
+const sumOfDigits = (num) => {
+  return num
+    .toString()
+    .split("")
+    .reduce((sum, digit) => sum + Number(digit), 0);
 };
-console.log(SumOfDigits(123));
-
-const SumOfDigits1 = (num) => {
-  let sum = 0;
-  while (num > 0) {
-    sum += num % 10;
-    num = Math.floor(num / 10);
-    console.log(sum);
-  }
-  return sum;
-};
-console.log(SumOfDigits1(121));
+console.log(sumOfDigits(123)); // 6
 ```
 
-9. **Longest Word in a Sentence**
+</details>
 
-   - Write a program to find and return the longest word in a given sentence.
+---
+
+### 9. **Longest Word in a Sentence**
+
+Write a program to find and return the longest word in a given sentence.
+
+<details>
+<summary>Answer</summary>
 
 ```js
-const longestWordInASentence = (str) => {
-  return str.split(" ").reduce((largest, word) => {
-    return word.length > largest.length ? word : largest;
+const longestWord = (str) => {
+  return str.split(" ").reduce((longest, word) => {
+    return word.length > longest.length ? word : longest;
   }, "");
 };
-console.log(
-  longestWordInASentence("find and return the longest word in a given sentence")
-);
+console.log(longestWord("find the longest word in this sentence")); // "longest"
+```
 
+```js
 const longestWordInASentence1 = (str) => {
   let largest = "";
   let words = str.split(" ");
@@ -218,7 +254,11 @@ console.log(
     "find and return the longest word in a given sentence"
   )
 );
+```
 
+## using Sort Method
+
+```js
 const longestWordInASentence2 = (str) => {
   let words = str.split(" ");
   return words.sort((a, b) => b.length - a.length)[0];
@@ -231,9 +271,23 @@ console.log(
 );
 ```
 
-10. **Remove Specific Element from Array**
+</details>
 
-- Build a function that removes all occurrences of a specific element from an array (e.g., remove all `3`s from `[1, 3, 2, 3, 4]` to return `[1, 2, 4]`).
+---
+
+### 10. **Remove Specific Element from Array**
+
+Build a function that removes all occurrences of a specific element from an array.
+
+<details>
+<summary>Answer</summary>
+
+```js
+const removeElement = (arr, elementToRemove) => {
+  return arr.filter((value) => value !== elementToRemove);
+};
+console.log(removeElement([1, 2, 3, 2, 4], 2)); // [1, 3, 4]
+```
 
 ```js
 const removeSpecificElement = (arr) => {
@@ -248,12 +302,9 @@ const removeSpecificElement = (arr) => {
   return sp;
 };
 console.log(removeSpecificElement([1, 3, 2, 3, 4]));
+```
 
-const removeSpecificElement1 = (arr, removeElement) => {
-  return arr.filter((value) => removeElement !== value);
-};
-console.log(removeSpecificElement1([1, 3, 2, 3, 4], 3));
-
+```js
 const removeSpecificElement2 = (arr, removeElement) => {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
@@ -266,4 +317,6 @@ const removeSpecificElement2 = (arr, removeElement) => {
 console.log(removeSpecificElement2([1, 3, 2, 3, 4], 3));
 ```
 
-These problems will help you strengthen your grasp on various JavaScript concepts like loops, conditionals, string manipulation, and array operations!
+</details>
+
+---

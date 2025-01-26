@@ -1,11 +1,11 @@
-Here is the formatted version of your list of **10 additional unique JavaScript problem ideas** for beginners:
+Here is the formatted version of your **10 additional unique JavaScript problem ideas** for beginners:
 
 ---
 
 ### 1. **Convert Decimal to Binary**
 
 - Write a function that converts a decimal number to its binary equivalent.  
-  Example: `10` → `1010`.
+  Example: `10` → `"1010"`.
 
 <details>
 <summary><strong>Solution</strong></summary>
@@ -179,6 +179,24 @@ console.log(countWord("naga is a naga boy", "naga")); // Output: 2
 
 - Create a function to calculate the median of an array of numbers.
 
+<details>
+<summary><strong>Solution</strong></summary>
+
+```javascript
+const findMedian = (arr) => {
+  arr.sort((a, b) => a - b);
+  const middle = Math.floor(arr.length / 2);
+  return arr.length % 2 === 0
+    ? (arr[middle - 1] + arr[middle]) / 2
+    : arr[middle];
+};
+
+console.log(findMedian([1, 2, 3, 4, 5])); // Output: 3
+console.log(findMedian([1, 2, 3, 4, 5, 6])); // Output: 3.5
+```
+
+</details>
+
 ---
 
 ### 8. **Remove All Spaces from a String**
@@ -247,6 +265,34 @@ console.log(nonRepeatingFirstChar("swiss")); // Output: "w"
 - Create a function to calculate the sum of all integers between two numbers, inclusive.  
   Example: Sum between `1` and `5` → `1 + 2 + 3 + 4 + 5 = 15`.
 
----
+<details>
+<summary><strong>Solution</strong></summary>
 
-These problem ideas cover essential topics like string manipulation, arrays, loops, and basic algorithms. Let me know if you'd like additional challenges or explanations! 😊
+**Using Loop**:
+
+```javascript
+const sumOfRange = (start, end) => {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
+  return sum;
+};
+
+console.log(sumOfRange(1, 5)); // Output: 15
+```
+
+**Using Formula**:
+
+```javascript
+const sumOfRangeFormula = (start, end) => {
+  let n = end - start + 1;
+  return (n * (end + start)) / 2;
+};
+
+console.log(sumOfRangeFormula(1, 5)); // Output: 15
+```
+
+</details>
+
+---

@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+Cypro+Minoan:regular);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  font-family: "Noto Sans Cypro Minoan";
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.heading {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: transparent;
+  -webkit-text-stroke: #212121;
+  -webkit-text-stroke-width: 1px;
+}
+.accordion {
+  margin-top: 20px;
+  width: 50%;
+  padding: 1.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+}
+.accordion_item {
+  border: 1px solid black;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.accordion_item:hover {
+  opacity: 0.6;
+}
+.accordion_title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.accordion_title i {
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: all ease 0.3;
+}
+.accordion_title.active i {
+  transform: rotate(180deg);
+}
+
+.accordion_content {
+  display: none;
+}
+
+.accordion_title.active + .accordion_content {
+  display: block;
+}

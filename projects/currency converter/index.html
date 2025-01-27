@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>currency convertor</title>
+    <link rel="shortcut icon" href="assets/fevicon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container">
+      <h1 class="heading">currency converter</h1>
+      <form>
+        <div class="amount">
+          <label for="amount">Enter Amount</label>
+          <input type="number" name="amount" id="amount" />
+        </div>
+        <div class="dropdown">
+          <div class="from">
+            <p>from</p>
+            <div class="select_container">
+              <img src="https://flagsapi.com/US/flat/64.png" alt="flag" />
+              <select name="from" id=""></select>
+            </div>
+          </div>
+          <div class="icon">
+            <i class="ri-exchange-box-fill"></i>
+          </div>
+          <div class="to">
+            <p>to</p>
+            <div class="select_container">
+              <img src="https://flagsapi.com/IN/flat/64.png" alt="flag" />
+              <select name="to" id=""></select>
+            </div>
+          </div>
+        </div>
+        <div class="message">1usd=80inr</div>
+        <button class="btn" type="submit">get exchange value</button>
+      </form>
+    </section>
+    <script src="./codes.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

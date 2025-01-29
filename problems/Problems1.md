@@ -216,23 +216,33 @@ Write a function to determine if a given number is prime or not.
 ```javascript
 const isPrime = (num) => {
   if (num <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
+  if (num === 2) return true;
+  if (num % 2 === 0) return false;
+  for (let i = 3; i <= Math.sqrt(num); i += 2) {
     if (num % i === 0) return false;
   }
   return true;
 };
-console.log(isPrime(29)); // Output: true
+console.log(isPrime(96));
 ```
 
 ```js
-const findPrimeNum = (num) => {
-  let primeNum = [];
+findAllPrimeNum = (num) => {
+  let primeNumber = [];
   for (let i = 2; i <= num; i++) {
-    if (isPrime(i)) primeNum.push(i);
+    if (isPrime(i)) {
+      primeNumber.push(i);
+    }
   }
-  return primeNum;
+  return primeNumber;
 };
-console.log(findPrimeNum(100));
+
+console.log(findAllPrimeNum(100));
+```
+
+```js
+const largePrimeNum = findAllPrimeNum(100).findLast(isPrime);
+console.log(largePrimeNum);
 ```
 
 </details>

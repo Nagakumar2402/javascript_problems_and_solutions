@@ -1,0 +1,28 @@
+<body>
+  <div id="preview"></div>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(function () {
+      $.getJSON(
+        "https://raw.githubusercontent.com/jonathantneal/google-fonts-complete/master/google-fonts.json",
+        function (fonts) {
+          window.myfonts = fonts;
+          var numf = Object.keys(fonts).length;
+
+          $(`<h1/>`)
+            .text(`showing ${numf} google fonts`)
+            .appendTo($("#preview"));
+
+          $.each(fonts, function (k, v) {
+            //if (v.category!=='sans-serif') return; //filter only sans-serif fonts. replace with your filter condition(s)
+            var css = `@import url('https://fonts.googleapis.com/css?family=${k}');`;
+            $("<style/>").append(css).appendTo(document.head);
+            $(`<h1 style="font-family: '${k}'"/>`)
+              .text(`${k}: The quick brown Fox goes to Disney`)
+              .appendTo($("#preview"));
+          });
+        }
+      );
+    });
+  </script>
+</body>

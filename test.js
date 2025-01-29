@@ -1,18 +1,4 @@
-"useStrict";
-
-const mostFrequentlyOccurringValue = (arr) => {
-  let frequency = {};
-  let maxFrequency = 0;
-  let mode = null;
-
-  for (let num of arr) {
-    frequency[num] = (frequency[num] || 0) + 1;
-    if (frequency[num] > maxFrequency) {
-      maxFrequency = frequency[num];
-      mode = num;
-    }
-  }
-  return mode;
+const specificValue = (arr, specific) => {
+  return arr.some((char) => char === specific);
 };
-
-console.log(mostFrequentlyOccurringValue([1, 2, 3, 4, 4, 4, 3, 2, 1]));
+console.log(specificValue([1, 2, 3, 4, 5, 6], 6));

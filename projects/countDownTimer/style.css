@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron:regular,500,600,700,800,900);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Orbitron", serif;
+  background-image: url(./assets/snow.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  font-size: 4rem;
+  text-transform: capitalize;
+  margin-top: 2rem;
+  font-weight: bolder;
+}
+.countdown_container {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.timer_el > div {
+  font-size: 4rem;
+  line-height: 1;
+}
+.timer_el {
+  text-align: center;
+}
+.timer_el span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

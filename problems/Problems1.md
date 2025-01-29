@@ -61,21 +61,6 @@ console.log(findLargeNumber1([]));
 ```
 
 ```js
-const findLargeNumber1 = (arr) => {
-  if (arr.length === 0) return null;
-  let largerNum = arr[0];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > largerNum) {
-      largerNum = arr[i];
-    }
-  }
-  return largerNum;
-};
-console.log(findLargeNumber1([29, 42, 15, 68]));
-console.log(findLargeNumber1([]));
-```
-
-```js
 const findLargeNumber3 = (arr) => {
   return Math.max(...arr);
 };

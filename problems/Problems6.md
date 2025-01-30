@@ -3,10 +3,58 @@ Here are **10 more fresh JavaScript problem ideas** for beginners:
 1. **Count Duplicates in an Array**
 
    - Write a program to count how many elements in an array are duplicates (e.g., `[1, 2, 2, 3, 4, 4, 4]` → `2` because `2` and `4` are duplicates).
+   <details>
+   <summary><strong>Solution</strong> <summary>
+
+   ```js
+   const countDuplicatesInAnArray = (arr) => {
+     let obj = {};
+     let final = 0;
+     for (let num of arr) {
+       obj[num] = (obj[num] || 0) + 1;
+     }
+     for (let key in obj) {
+       if (obj[key] > 1) {
+         final++;
+       }
+     }
+     return final;
+   };
+   console.log(countDuplicatesInAnArray([1, 2, 2, 3, 4, 4, 4]));
+   ```
+
+```js
+const countDuplicatesInAnArray1 = (arr) => {
+  const duplicateArr = [
+    ...new Set(arr.filter((item, index) => arr.indexOf(item) !== index)),
+  ];
+  return duplicateArr.length;
+};
+console.log(countDuplicatesInAnArray1([1, 2, 2, 3, 4, 4, 4]));
+```
+
+   </details>
 
 2. **Check for Armstrong Number**
 
    - Create a function to check if a number is an Armstrong number (e.g., `153` → `1³ + 5³ + 3³ = 153`, so it’s true).
+     <details>
+     <summary><strong>Solution</strong> <summary>
+
+     ```js
+     const armstrongNumber = (num) => {
+     let number = num.toString();
+     let final = 0;
+     for (let digit of number) {
+     final += digit \*\* number.length;
+     }
+     return final;
+     };
+     console.log(armstrongNumber(153));
+
+     ```
+
+     </details>
 
 3. **Find the Intersection of Multiple Arrays**
 

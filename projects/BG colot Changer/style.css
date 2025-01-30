@@ -33,7 +33,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.hex_color {
+.hex_color,
+.rgb_color {
   font-size: 1.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -48,4 +49,34 @@ body {
   font-weight: 600;
   border-radius: 10px;
   border: 2px solid black;
+}
+
+.range_btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.range_btn label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 2rem;
+  text-align: right;
+}
+
+.range_btn input[type="range"] {
+  appearance: none;
+  width: 150px;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.hexCopy_btn,
+.rgbCopy_btn {
+  margin-top: 1rem;
 }

@@ -25,7 +25,13 @@ body {
   display: flex;
   gap: 2.5rem;
   justify-content: center;
+
   margin-top: 3rem;
+}
+.dots {
+  font-size: 4rem;
+  align-self: center;
+  line-height: 1;
 }
 .timer_el > div {
   font-size: 4rem;

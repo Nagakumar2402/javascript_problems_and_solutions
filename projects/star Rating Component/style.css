@@ -40,7 +40,8 @@ body {
 .ri-star-fill {
   cursor: pointer;
 }
-.ri-star-fill {
+.ri-star-fill,
+.ri-star-half-line {
   font-size: 4rem;
   color: #ffd700;
 }

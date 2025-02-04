@@ -3,7 +3,7 @@ const dayEl = document.querySelector(".day div"),
   minuteEl = document.querySelector(".minute div"),
   secondEl = document.querySelector(".second div");
 
-const featureDate = "1 feb 2025";
+const featureDate = "2 feb 2025";
 const countDown = () => {
   const upcomingDate = new Date(featureDate);
   const currentDate = new Date();

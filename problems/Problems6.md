@@ -1,4 +1,3 @@
----
 
 1. **Count Duplicates in an Array**
 

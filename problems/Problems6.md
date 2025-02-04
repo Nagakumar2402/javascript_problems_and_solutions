@@ -1,5 +1,3 @@
-Here’s the cleanly formatted version of all the problems:
-
 ---
 
 1. **Count Duplicates in an Array**

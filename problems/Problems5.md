@@ -1,4 +1,4 @@
-Here’s the formatted version of your content:
+
 
 ---
 

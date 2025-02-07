@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 400px;
+  padding: 1.5rem;
+}
+.header {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin-top: 2rem;
+}
+
+#textInput {
+  padding: 0.8rem;
+  width: 100%;
+  margin: 1rem 0;
+  border: 2px solid #212121;
+  border-radius: 5px;
+}
+.btn {
+  width: 100%;
+  background-color: #494eea;
+  border: 0;
+  outline: 0;
+  padding: 1rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #fff;
+}
+.qr_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 1s;
+}
+.qr_container.showImg {
+  max-height: fit-content;
+  padding: 1rem;
+}
+.qr_container img {
+  object-fit: contain;
+}

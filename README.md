@@ -3,3 +3,4 @@
 javascript problems and solutions
 
 [projects](projects\index.html)
+[Problems](problems)
